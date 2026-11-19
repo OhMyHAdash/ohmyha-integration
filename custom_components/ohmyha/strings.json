@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "OhMyHA",
+        "description": "Already bought? Enter your licence key and the e-mail of your purchase (or your free key): the OhMyHA file is downloaded from ohmyha.com, its SHA-256 fingerprint is checked, then added to your dashboard resources automatically.\n\nNo key yet? Leave both fields empty: the online version is added, enough to use the OhMyHA studio. You can add your key later with \"Reconfigure\". {site}",
+        "data": {
+          "key": "Licence key (optional)",
+          "email": "Purchase e-mail (optional)",
+          "mode": "Mode"
+        },
+        "data_description": {
+          "mode": "100% local (needs a key): the file is stored in your Home Assistant and only changes when you click Install in Updates. Online: always the latest version, loaded from ohmyha.com."
+        }
+      },
+      "existing": {
+        "title": "OhMyHA is already installed",
+        "description": "An OhMyHA resource added by hand already exists: {urls}. Both together would clash.",
+        "data": {
+          "choice": "What should we do?"
+        }
+      },
+      "reconfigure": {
+        "title": "OhMyHA settings",
+        "description": "Add or change your licence key, or switch between 100% local and online. Leave both fields empty to use the online version. {site}",
+        "data": {
+          "key": "Licence key (optional)",
+          "email": "Purchase e-mail (optional)",
+          "mode": "Mode"
+        },
+        "data_description": {
+          "mode": "100% local (needs a key): the file is stored in your Home Assistant and only changes when you click Install in Updates. Online: always the latest version, loaded from ohmyha.com."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Key or e-mail not recognised: enter the licence key and the e-mail of your purchase.",
+      "cannot_connect": "Cannot reach ohmyha.com. Check Home Assistant's Internet connection and try again.",
+      "bad_file": "The file received does not match the published fingerprint, so it was refused. Try again later or write to contact@ohmyha.com.",
+      "unknown": "Unexpected error, try again.",
+      "key_and_email": "Enter both the licence key and the e-mail of your purchase, or leave both empty to use the online version."
+    },
+    "abort": {
+      "single_instance_allowed": "OhMyHA is already set up.",
+      "keep_mode": "OhMyHA keeps your install added by hand, so there is nothing to set here. To let the integration handle it, delete the integration and add it again, then choose the second option.",
+      "reconfigure_successful": "OhMyHA settings saved."
+    }
+  },
+  "selector": {
+    "mode": {
+      "options": {
+        "local": "100% local (recommended)",
+        "online": "Online"
+      }
+    },
+    "choice": {
+      "options": {
+        "keep": "Keep my current install (nothing changes)",
+        "replace": "Let the integration handle it (the old resource is removed, and put back if you delete the integration)"
+      }
+    }
+  },
+  "entity": {
+    "update": {
+      "file": {
+        "name": "OhMyHA file"
+      }
+    }
+  }
+}

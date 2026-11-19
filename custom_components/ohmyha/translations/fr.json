@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "OhMyHA",
+        "description": "Déjà acheté ? Entre ta clé de licence et l'e-mail de ton achat (ou ta clé gratuite) : le fichier OhMyHA est téléchargé depuis ohmyha.com, son empreinte SHA-256 est vérifiée, puis il est ajouté tout seul aux ressources de tes tableaux de bord.\n\nPas encore de clé ? Laisse les deux champs vides : la version en ligne est ajoutée, ça suffit pour utiliser le studio OhMyHA. Tu pourras ajouter ta clé plus tard avec « Reconfigurer ». {site}",
+        "data": {
+          "key": "Clé de licence (facultatif)",
+          "email": "E-mail de l'achat (facultatif)",
+          "mode": "Mode"
+        },
+        "data_description": {
+          "mode": "100 % local (avec une clé) : le fichier est rangé dans ton Home Assistant et ne change que si tu cliques sur « Installer » dans Mises à jour. En ligne : toujours la dernière version, chargée depuis ohmyha.com."
+        }
+      },
+      "existing": {
+        "title": "OhMyHA est déjà installé",
+        "description": "Une ressource OhMyHA ajoutée à la main existe déjà : {urls}. Les deux ensemble se gêneraient.",
+        "data": {
+          "choice": "Que faire ?"
+        }
+      },
+      "reconfigure": {
+        "title": "Réglages OhMyHA",
+        "description": "Ajoute ou change ta clé de licence, ou passe de 100 % local à en ligne. Laisse les deux champs vides pour la version en ligne. {site}",
+        "data": {
+          "key": "Clé de licence (facultatif)",
+          "email": "E-mail de l'achat (facultatif)",
+          "mode": "Mode"
+        },
+        "data_description": {
+          "mode": "100 % local (avec une clé) : le fichier est rangé dans ton Home Assistant et ne change que si tu cliques sur « Installer » dans Mises à jour. En ligne : toujours la dernière version, chargée depuis ohmyha.com."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Clé ou e-mail non reconnu : entre la clé de licence et l'e-mail de ton achat.",
+      "cannot_connect": "Impossible de joindre ohmyha.com. Vérifie la connexion Internet de Home Assistant et réessaie.",
+      "bad_file": "Le fichier reçu ne correspond pas à l'empreinte publiée : il a été refusé. Réessaie plus tard ou écris à contact@ohmyha.com.",
+      "unknown": "Erreur inattendue, réessaie.",
+      "key_and_email": "Entre la clé de licence et l'e-mail de ton achat, ou laisse les deux vides pour la version en ligne."
+    },
+    "abort": {
+      "single_instance_allowed": "OhMyHA est déjà configuré.",
+      "keep_mode": "OhMyHA garde ton installation faite à la main, il n'y a donc rien à régler ici. Pour laisser l'intégration s'en occuper, supprime l'intégration, ajoute-la de nouveau et choisis la deuxième option.",
+      "reconfigure_successful": "Réglages OhMyHA enregistrés."
+    }
+  },
+  "selector": {
+    "mode": {
+      "options": {
+        "local": "100 % local (recommandé)",
+        "online": "En ligne"
+      }
+    },
+    "choice": {
+      "options": {
+        "keep": "Garder mon installation actuelle (rien ne change)",
+        "replace": "Laisser l'intégration s'en occuper (l'ancienne ressource est retirée, et remise si tu supprimes l'intégration)"
+      }
+    }
+  },
+  "entity": {
+    "update": {
+      "file": {
+        "name": "Fichier OhMyHA"
+      }
+    }
+  }
+}

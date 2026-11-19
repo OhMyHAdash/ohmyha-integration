@@ -1,0 +1,22 @@
+{
+  "domain": "ohmyha",
+  "name": "OhMyHA",
+  "after_dependencies": [
+    "lovelace"
+  ],
+  "codeowners": [
+    "@OhMyHAdash"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "http",
+    "frontend"
+  ],
+  "documentation": "https://github.com/OhMyHAdash/ohmyha-integration",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/OhMyHAdash/ohmyha-integration/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.2.0"
+}
