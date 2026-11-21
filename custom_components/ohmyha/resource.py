@@ -113,15 +113,22 @@ def storage_mode(hass: HomeAssistant) -> bool:
     return res is not None and mode != "yaml" and hasattr(res, "async_create_item")
 
 
+def _set_extra_module(hass: HomeAssistant, url: str) -> None:
+    """Load the file on every Home Assistant page (also the "Home" page and Settings, which load no Lovelace
+    resources), so the OhMyHA studio window answers wherever it lands. Same URL as the resource: the browser
+    runs the module once."""
+    old = hass.data.pop(DATA_EXTRA_JS, None)
+    if old and old != url:
+        remove_extra_js_url(hass, old)
+    if old != url:
+        add_extra_js_url(hass, url)
+    hass.data[DATA_EXTRA_JS] = url
+
+
 async def async_set_resource(hass: HomeAssistant, url: str, item_id: str | None) -> str | None:
-    """Create or update our resource. Returns its id (None in YAML mode, where an extra module is used)."""
+    """Create or update our resource. Returns its id (None in YAML mode, where only the extra module is used)."""
+    _set_extra_module(hass, url)
     if not storage_mode(hass):
-        old = hass.data.pop(DATA_EXTRA_JS, None)
-        if old and old != url:
-            remove_extra_js_url(hass, old)
-        if old != url:
-            add_extra_js_url(hass, url)
-        hass.data[DATA_EXTRA_JS] = url
         _LOGGER.info("OhMyHA: ressources Lovelace en YAML, fichier chargé comme module du frontend (%s)", url)
         return None
     _, res = _lovelace(hass)
