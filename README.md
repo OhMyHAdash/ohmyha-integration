@@ -7,10 +7,11 @@ Free integration that installs the **OhMyHA** file in Home Assistant in one step
 ![Setup](images/setup.png)
 
 ## Install
-1. Settings > Marketplace (or HACS) > ⋮ > Custom repositories > add `https://github.com/OhMyHAdash/ohmyha-integration`, type **Integration**, then download **OhMyHA** and restart Home Assistant.
-2. Settings > Devices & services > Add integration > **OhMyHA**.
+1. Settings > Marketplace (or HACS) > ⋮ > Custom repositories > add `https://github.com/OhMyHAdash/ohmyha-integration`, type **Integration**, then download **OhMyHA**.
+2. Settings > Devices & services > Add integration > **OhMyHA**. Not in the list? Restart Home Assistant once, then try again.
 3. Enter your OhMyHA licence key and purchase e-mail (or a free key from [ohmyha.com](https://ohmyha.com)), pick a mode, done.
    No key yet? Leave both fields empty: the online version is added, enough to build your dashboard in the OhMyHA studio. Add your key later with **Reconfigure** to switch to 100% local.
+4. After installing a dashboard, reload each screen once (Ctrl+F5 on a computer, close and reopen the Home Assistant app on a tablet or phone) so it picks up the new files.
 
 ## Modes
 - **100% local** (recommended): the file is downloaded once, its SHA-256 is checked against the fingerprint published on https://ohmyha.com/local, stored in `/config/ohmyha/` and served by Home Assistant at `/ohmyha_files/ohmyha.js`. It never changes by itself: a new version shows up in **Settings > Updates** (*OhMyHA file*) and is installed only when you click **Install**. Skin palette and the premium skins you own are included.
